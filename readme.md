@@ -1,5 +1,9 @@
 # **Marvel app**
 
+[![Coveralls](https://github.com/nicovegasr/marvel-api/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicovegasr/marvel-api/actions/workflows/coverage.yml)
+[![Test](https://github.com/nicovegasr/marvel-api/actions/workflows/test.yml/badge.svg)](https://github.com/nicovegasr/marvel-api/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/nicovegasr/marvel-api/badge.svg?branch=master)](https://coveralls.io/github/nicovegasr/marvel-api?branch=master)
+
 ## Entendiendo el desafío:
 * Api a consumir: [marvel](https://developer.marvel.com/docs)
 * Objetivo: Hacer una API con 1 endpoint /character con 2 rutas:
@@ -41,6 +45,8 @@ El flujo de la API en la primera petición de cada día sería:
   * URL_DATABASE=``URL de tu base de datos de moongose.``
 
 ## Testing:
-Para desarrollar los tests de la API se utilizó jest con supertest aunque es la parte más débil de la aplicación por problemas con el CI/CD de Github, en un futuro se podria plantear mejorarse.
+Para desarrollar los tests de la API se utilizó jest con supertest aunque es la parte más débil de la aplicación por problemas con el CI/CD de Github, en un futuro se podria plantear mejorarse. Sin embargo vemos que quitando las funcionalidades del middlewares que son las más difíciles de testear ya que tienen tiempos elevados de carga ya que en general se encargan de borrar la base de datos y volver a hacer una peticion a la api de marvel externa para actualizar la información, el resto de ficheros tienen un porcentaje alto de cubrimiento:
+
+![Coverage information](./img/coveralls.png)
 
 > Despliegue: 
