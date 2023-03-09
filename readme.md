@@ -49,4 +49,9 @@ Para desarrollar los tests de la API se utilizó jest con supertest aunque es la
 
 ![Coverage information](./img/coveralls.png)
 
-> Despliegue: 
+> Despliegue: https://ejfitn-4000.csb.app/
+* Ejemplos de solicitudes: 
+  * https://ejfitn-4000.csb.app/character/name/Adam Destine
+  * https://ejfitn-4000.csb.app/character/name/no existo
+  * https://ejfitn-4000.csb.app//character/id/1011266  
+  * https://ejfitn-4000.csb.app//character/id/1234
