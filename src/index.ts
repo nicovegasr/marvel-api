@@ -12,7 +12,6 @@ import './database/mongoose';
 import { defaultRouter } from './routes/default';
 import { characterRouter } from './routes/characterRoute';
 
-const port = process.env.PORT;
 const app = express();
 
 
@@ -23,6 +22,8 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/", characterRouter);
 app.use("/", defaultRouter);
+
+const port = process.env.PORT;
 
 const server = app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

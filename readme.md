@@ -15,14 +15,14 @@ Lo primero que tenemos que entender son los personajes de la api de marvel, esto
 
 Teniendo esto en cuenta tendremos las siguientes carpetas:
 
-* models: Se encargará del modelo que se almacenará en moongose con el nombre de colección **Character**, además dicho modelo implementará su interfaz correspondiente que está dividida en distintas interfaces para modelar el héroe de marvel correspondiente.
-* repositories: Contendrá una clase que **CharacterRepositorie** que se encargará de representar el comportamiento de todas nuestras peticiones a la base de datos con respecto a dicha colección.
-* services: Esta carpeta se centrará en la lógica de negocios, desconociendo los protocolos HTTP para encapsular lo máximo las funcionalidades siguiendo un poco la filosofía *Dont ask, tell*.
-* controllers: Se encarga de manejar todas las peticiones HTTP dependiendo del comportamiento de los servicios.
-* routes: Contiene las rutas de la aplicación mencionadas anteriormente con una por defecto añadida para manejar todas las rutas por defecto devolviendo un **501: Not Implemented**.
-* middlwares: Contaremos con 2 middlewares que usaran nuestras rutas:
-  * databaseReset: En caso de que el dia actual difiera de la ultima modificacion en nuestra coleccion, hace un drop de la base de datos para volver a rellenarla en el siguiente middlware, esto nos asegura que tenemos todos los días nuestra base de datos actualizada.
-  * databaseChecker: Se encarga de revisar si nuestra base de datos está vacía, en caso de estarlo hace una petición a la API de marvel y mediante nuestro repositorio almacena los héros correspondientes y pasa al siguiente middlware o controlador, en caso contrario devuelve un codigo de error.
+* **Models**: Se encargará del modelo que se almacenará en moongose con el nombre de colección **Character**, además dicho modelo implementará su interfaz correspondiente que está dividida en distintas interfaces para modelar el héroe de marvel correspondiente.
+* **Repositories**: Contendrá una clase que **CharacterRepositorie** que se encargará de representar el comportamiento de todas nuestras peticiones a la base de datos con respecto a dicha colección.
+* **Services**: Esta carpeta se centrará en la lógica de negocios, desconociendo los protocolos HTTP para encapsular lo máximo las funcionalidades siguiendo un poco la filosofía *Dont ask, tell*.
+* **Controllers**: Se encarga de manejar todas las peticiones HTTP dependiendo del comportamiento de los servicios.
+* **Routes**: Contiene las rutas de la aplicación mencionadas anteriormente con una por defecto añadida para manejar todas las rutas por defecto devolviendo un **501: Not Implemented**.
+* **Middlwares**: Contaremos con 2 middlewares que usaran nuestras rutas:
+  * **DatabaseReset**: En caso de que el dia actual difiera de la ultima modificacion en nuestra coleccion, hace un drop de la base de datos para volver a rellenarla en el siguiente middlware, esto nos asegura que tenemos todos los días nuestra base de datos actualizada.
+  * **DatabaseChecker**: Se encarga de revisar si nuestra base de datos está vacía, en caso de estarlo hace una petición a la API de marvel y mediante nuestro repositorio almacena los héros correspondientes y pasa al siguiente middlware o controlador, en caso contrario devuelve un codigo de error.
 
 El flujo de la API en la primera petición de cada día sería:
 
@@ -39,4 +39,5 @@ El flujo de la API en la primera petición de cada día sería:
   * PRIVATE_API_KEY=``Tu clave privada de la API de marvel``
   * PORT=``Puerto donde se ejecutará tu API``
   * URL_DATABASE=``URL de tu base de datos de moongose.``
+
 > Despliegue: 
