@@ -12,8 +12,7 @@ beforeAll(async () => {
 
 describe('Character id endpoints test', () => {
   test('Heroe should not be in database. ', async () => {
-    const res = await api.get('/character/id/1')
-    expect(res.status).toBe(404)
+    await api.get('/character/id/nosoyunid').expect(404)
   });
   test('Heroe should be in database. ', async () => {
     await api.get('/character/id/1011266').expect(200)
@@ -22,8 +21,7 @@ describe('Character id endpoints test', () => {
 
 describe('Character name endpoints test', () => {
   test('Heroe should not be in database. ', async () => {
-    const res = await api.get('/character/name/no')
-    expect(res.status).toBe(404)
+    await api.get('/character/name/12345').expect(404)
   });
   test('Heroe should be in database. ', async () => {
     await api.get('/character/name/Adam Destine').expect(200)
