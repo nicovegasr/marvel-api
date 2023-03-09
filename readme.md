@@ -40,4 +40,7 @@ El flujo de la API en la primera petición de cada día sería:
   * PORT=``Puerto donde se ejecutará tu API``
   * URL_DATABASE=``URL de tu base de datos de moongose.``
 
+## Testing:
+Para desarrollar los tests de la API se utilizó jest con supertest aunque es la parte más débil de la aplicación por problemas con el CI/CD de Github, en un futuro se podria plantear mejorarse.
+
 > Despliegue: 
