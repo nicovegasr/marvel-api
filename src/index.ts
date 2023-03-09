@@ -8,6 +8,8 @@ require('dotenv').config({
 })
 
 import './database/mongoose';
+
+import { defaultRouter } from './routes/default';
 import { characterRouter } from './routes/characterRoute';
 
 const port = process.env.PORT;
@@ -20,7 +22,7 @@ app.use(express.urlencoded({extended:true}));
 
 
 app.use("/", characterRouter);
-
+app.use("/", defaultRouter);
 
 const server = app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
