@@ -28,16 +28,21 @@ export const getByName = async (req: Request, res: Response) => {
  * @returns: The character object with the specified ID and a 200 status or a 404 error if not found.
 */
 export const getById = async (req: Request, res: Response) => {
-  const characterId = req.params.id as unknown as number;
-  try {
-    const character = await getByIdService(characterId);
-    if (character != null) {
-      res.status(200).send(character)
-    } else {
-      res.status(404).send({message: `There is no character with id: ${characterId}`})
+  const characterId = parseInt(req.params.id, 10);
+  if (Number.isNaN(characterId)) {
+    res.status(501).send({message: "Id must be a number"})
+  } 
+  else {
+    try {
+      const character = await getByIdService(characterId);
+      if (character != null) {
+        res.status(200).send(character)
+      } else {
+        res.status(404).send({message: `There is no character with id: ${characterId}`})
+      }
     }
-  }
-  catch(error) {
-    res.status(501).send({error: error as string})
+    catch(error) {
+      res.status(501).send({error: error as string})
+    }
   }
 }
