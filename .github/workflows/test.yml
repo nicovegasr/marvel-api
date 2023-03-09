@@ -9,14 +9,14 @@ jobs:
   environment:
     name: Test
     runs-on: ubuntu-latest
-    env:
-      PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
-      PRIVATE_API_KEY: ${{ secrets.PRIVATE_API_KEY }}
-      PORT: ${{ secrets.PORT }}
-      URL_DATABASE: ${{ secrets.URL_DATABASE }}
     steps:
       - name: Cloning repo
         uses: actions/checkout@v2
+        env:
+          PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
+          PORT: ${{ secrets.PORT }}
+          PRIVATE_API_KEY: ${{ secrets.PRIVATE_API_KEY }}
+          URL_DATABASE: ${{ secrets.URL_DATABASE }}
 
       - name: Use Node.js 18.4.0
         uses: actions/setup-node@v1
