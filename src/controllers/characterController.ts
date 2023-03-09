@@ -1,13 +1,13 @@
 import { getByIdService } from "../services/characterServices"
 import { getByNameService } from "../services/characterServices"
-
+import { Request, Response } from "express";
 /**
  * @description: Retrieves a character by name from the database through the getByNameService function and sends it as a response.
  * @param: req - the request object
  * @param: res - the response object
  * @return: returns the character object with a 200 status code if found or a 404 status code with an error message if not
 */
-export const getByName = async (req: any, res: any) => {
+export const getByName = async (req: Request, res: Response) => {
   const characterName = req.params.name as string;
   try {
     const character = await getByNameService(characterName);
@@ -27,8 +27,8 @@ export const getByName = async (req: any, res: any) => {
  * @param res - The response object.
  * @returns: The character object with the specified ID and a 200 status or a 404 error if not found.
 */
-export const getById = async (req: any, res: any) => {
-  const characterId = req.params.id as number;
+export const getById = async (req: Request, res: Response) => {
+  const characterId = req.params.id as unknown as number;
   try {
     const character = await getByIdService(characterId);
     if (character != null) {

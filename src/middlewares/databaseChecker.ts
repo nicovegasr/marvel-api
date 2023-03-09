@@ -1,6 +1,7 @@
 import axios from "axios"
 import { CharacterModel } from "../models/character"
 import { CharacterRepositorie } from "../repositories/characterRepositorie";
+import { Response } from "express";
 const md5 = require('md5');
 
 /**
@@ -10,7 +11,7 @@ and saves it to the database using the CharacterRepositorie class.
 @param next: the next middleware function
 @returns: sends a response indicating whether data was successfully stored or not
 */
-export const checkDatabase = async (_: any, res: any, next: any) => {
+export const checkDatabase = async (_: any, res: Response, next: any) => {
   const count = await CharacterModel.count()
   if (count > 0) {
     next()
