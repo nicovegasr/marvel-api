@@ -3,6 +3,7 @@
 [![Coveralls](https://github.com/nicovegasr/marvel-api/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicovegasr/marvel-api/actions/workflows/coverage.yml)
 [![Test](https://github.com/nicovegasr/marvel-api/actions/workflows/test.yml/badge.svg)](https://github.com/nicovegasr/marvel-api/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/nicovegasr/marvel-api/badge.svg?branch=master)](https://coveralls.io/github/nicovegasr/marvel-api?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nicovegasr_marvel-api&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nicovegasr_marvel-api)
 
 ## Entendiendo el desafío:
 * Api a consumir: [marvel](https://developer.marvel.com/docs)
