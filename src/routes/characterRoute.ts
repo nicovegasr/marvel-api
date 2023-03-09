@@ -1,8 +1,7 @@
 import * as express from 'express';
 
 import { checkDatabase } from '../middlewares/databaseChecker';
-import { getById } from '../controllers/characterController';
-import { getByName } from '../controllers/characterController';
+import { getById, getByName } from '../controllers/characterController';
 import { resetDatabase } from '../middlewares/databaseReset';
 
 /**

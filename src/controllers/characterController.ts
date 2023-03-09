@@ -1,5 +1,4 @@
-import { getByIdService } from "../services/characterServices"
-import { getByNameService } from "../services/characterServices"
+import { getByIdService, getByNameService } from "../services/characterServices"
 import { Request, Response } from "express";
 /**
  * @description: Retrieves a character by name from the database through the getByNameService function and sends it as a response.
