@@ -1,6 +1,12 @@
 import { getByIdService } from "../services/characterServices"
 import { getByNameService } from "../services/characterServices"
 
+/**
+ * @description: Retrieves a character by name from the database through the getByNameService function and sends it as a response.
+ * @param: req - the request object
+ * @param: res - the response object
+ * @return: returns the character object with a 200 status code if found or a 404 status code with an error message if not
+*/
 export const getByName = async (req: any, res: any) => {
   const characterName = req.params.name as string;
   try {
@@ -15,7 +21,12 @@ export const getByName = async (req: any, res: any) => {
   }
 }
 
-
+/**
+ * @description: Retrieves a character by its ID.
+ * @param req - The request object.
+ * @param res - The response object.
+ * @returns: The character object with the specified ID and a 200 status or a 404 error if not found.
+*/
 export const getById = async (req: any, res: any) => {
   const characterId = req.params.id as number;
   try {

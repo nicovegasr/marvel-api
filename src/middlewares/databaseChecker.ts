@@ -3,6 +3,13 @@ import { CharacterModel } from "../models/character"
 import { CharacterRepositorie } from "../repositories/characterRepositorie";
 const md5 = require('md5');
 
+/**
+@description: Checks if there are characters in the database. If there are none, retrieves data from the Marvel API
+and saves it to the database using the CharacterRepositorie class.
+@param res: the response object
+@param next: the next middleware function
+@returns: sends a response indicating whether data was successfully stored or not
+*/
 export const checkDatabase = async (_: any, res: any, next: any) => {
   const count = await CharacterModel.count()
   if (count > 0) {
