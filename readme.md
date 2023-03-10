@@ -48,6 +48,18 @@ El flujo de la API en la primera petición de cada día sería:
 ## Testing:
 Para desarrollar los tests de la API se utilizó jest con supertest aunque es la parte más débil de la aplicación por problemas con el CI/CD de Github, en un futuro se podria plantear mejorarse. Sin embargo vemos que quitando las funcionalidades del middlewares que son las más difíciles de testear ya que tienen tiempos elevados de carga ya que en general se encargan de borrar la base de datos y volver a hacer una peticion a la api de marvel externa para actualizar la información, el resto de ficheros tienen un porcentaje alto de cubrimiento:
 
+## Dockerfile:
+```docker
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+EXPOSE 4000
+CMD ["npm", "start"]
+```
+Comandos de ejemplo para crear la imágen y ejecutarla en un contenedor:
+* ``sudo docker build . -t node-api-marvel:latest``
+* ``sudo docker run --env-file=./.env.development  -p 4000:4000 node-api-marvel:latest``
+
 ![Coverage information](./img/coveralls.png)
 
 > Despliegue: https://ejfitn-4000.csb.app/
